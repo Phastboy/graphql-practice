@@ -36,3 +36,4 @@ This project is a simple book review API built with NestJS. It allows users to c
    ```
 3. The PostgreSQL database will be available at `localhost:5432`.
 4. Access pgAdmin at `http://localhost:5050` with the default email `admin@admin.com` and password `admin`.
+5. The PostgreSQL data will persist across container restarts due to the volume configuration.
