@@ -11,6 +11,8 @@ import { ReviewsModule } from './reviews/reviews.module';
     imports: [
         GraphQLModule.forRoot<ApolloDriverConfig>({
             driver: ApolloDriver,
+	    autoSchemaFile: true,
+	    playground: true,
         }),
         BooksModule,
         ReviewsModule,
