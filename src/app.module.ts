@@ -12,9 +12,7 @@ import { ReviewsModule } from './reviews/reviews.module';
         GraphQLModule.forRoot<ApolloDriverConfig>({
             driver: ApolloDriver,
             typePaths: ['./**/*.graphql'],
-            definitions: {
-                path: join(process.cwd(), 'src/graphql.ts'),
-            },
+            installSubscriptionHandlers: true,
             playground: true,
         }),
         BooksModule,
