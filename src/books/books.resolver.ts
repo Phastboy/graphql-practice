@@ -8,8 +8,8 @@ export class BooksResolver {
     constructor(private readonly booksService: BooksService) {}
 
     @Mutation('createBook')
-    create(@Args('createBookInput') createBookInput: CreateBookInput) {
-        return this.booksService.create(createBookInput);
+    async create(@Args('createBookInput') createBookInput: CreateBookInput) {
+        return await this.booksService.create(createBookInput);
     }
 
     @Query('books')
