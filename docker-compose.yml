@@ -27,6 +27,8 @@ services:
   app:
     image: node:latest
     working_dir: /app
+    environment:
+      DATABASE_URL: "postgresql://admin:admin@postgres:5432/mydatabase?schema=public"
     volumes:
       - .:/app
     command: >
