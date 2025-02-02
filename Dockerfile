@@ -7,12 +7,6 @@ WORKDIR /app
 # Copy the current directory contents to /app
 COPY . /app
 
-# Copy the .env file to the Docker image
-COPY .env /app/.env
-
-# Copy the prisma/schema.prisma file to the Docker image
-COPY prisma/schema.prisma /app/prisma/schema.prisma
-
 # Install dependencies and generate Prisma client
 RUN npm install && npx prisma generate
 
@@ -20,4 +14,4 @@ RUN npm install && npx prisma generate
 EXPOSE 8080
 
 # Run the application
-CMD ["npm", "run", "start:dev"]
+CMD sh -c "npm install && npx prisma generate && npm run build && npm run start:prod"
