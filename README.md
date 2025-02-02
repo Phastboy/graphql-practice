@@ -37,3 +37,25 @@ This project is a simple book review API built with NestJS. It allows users to c
 3. The PostgreSQL database will be available at `localhost:5432`.
 4. Access pgAdmin at `http://localhost:5050` with the default email `admin@admin.com` and password `admin`.
 5. The PostgreSQL data will persist across container restarts due to the volume configuration.
+
+## Building and Running the Application Docker Container
+
+1. Build the Docker image for the application:
+   ```bash
+   docker build -t book-review-app .
+   ```
+2. Run the Docker container for the application:
+   ```bash
+   docker run -d -p 8080:8080 --name book-review-app book-review-app
+   ```
+
+## Updated Usage with Docker
+
+1. Start the Docker containers:
+   ```bash
+   docker-compose up -d
+   ```
+2. The API will be available at `http://localhost:8080`.
+3. The PostgreSQL database will be available at `localhost:5432`.
+4. Access pgAdmin at `http://localhost:5050` with the default email `admin@admin.com` and password `admin`.
+5. The PostgreSQL data will persist across container restarts due to the volume configuration.
