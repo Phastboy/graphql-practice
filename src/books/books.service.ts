@@ -25,8 +25,15 @@ export class BooksService {
         return `This action returns a #${id} book`;
     }
 
-    update(id: number, updateBookInput: UpdateBookInput) {
-        return `This action updates a #${id} book ${JSON.stringify(updateBookInput)}`;
+    async update(id: number, updateBookInput: UpdateBookInput) {
+        const { title, author } = updateBookInput;
+        return this.prisma.book.update({
+            where: { id },
+            data: {
+                title,
+                author,
+            },
+        });
     }
 
     remove(id: number) {
