@@ -67,6 +67,18 @@ services:
     networks:
       - prisma-network
 
+  server:
+    build:
+      context: .
+    working_dir: /app
+    command: npm run start:prod
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    networks:
+      - mynetwork
+
 networks:
   mynetwork:
     driver: bridge
