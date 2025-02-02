@@ -9,8 +9,19 @@ services:
       - "5432:5432"
     networks:
       - mynetwork
+      - prisma-network
     volumes:
       - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
   pgadmin:
     image: dpage/pgadmin4:latest
@@ -43,8 +54,23 @@ services:
     networks:
       - mynetwork
 
+  prisma-studio:
+    image: node:latest
+    working_dir: /app
+    environment:
+      DATABASE_URL: "postgresql://admin:admin@postgres:5432/mydatabase?schema=public"
+    command: npx prisma studio
+    depends_on:
+      - postgres
+    ports:
+      - "5555:5555"
+    networks:
+      - prisma-network
+
 networks:
   mynetwork:
+    driver: bridge
+  prisma-network:
     driver: bridge
 
 volumes:

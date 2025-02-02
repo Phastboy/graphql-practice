@@ -43,12 +43,14 @@ This project is a simple book review API built with NestJS. It allows users to c
 3. The PostgreSQL database will be available at `localhost:5432`.
 4. Access pgAdmin at `http://localhost:5050` with the default email `admin@admin.com` and password `admin`.
 5. The PostgreSQL data will persist across container restarts due to the volume configuration.
+6. Access Prisma Studio at `http://localhost:5555` for database management.
 
 ## Access Points
 
 - GraphQL Playground: `http://localhost:8080/graphql`
 - pgAdmin: `http://localhost:5050`
 - Swagger API Docs: `http://localhost:8080/docs`
+- Prisma Studio: `http://localhost:5555`
 
 ## Setting Up the App Without Docker
 
