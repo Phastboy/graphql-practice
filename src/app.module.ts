@@ -6,14 +6,18 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { PrismaService } from './prisma.service';
 import { BooksModule } from './books/books.module';
 import { ReviewsModule } from './reviews/reviews.module';
+import { join } from 'path';
 
 @Module({
     imports: [
         GraphQLModule.forRoot<ApolloDriverConfig>({
             driver: ApolloDriver,
             typePaths: ['./**/*.graphql'],
+            definitions: {
+                path: join(process.cwd(), 'src/graphql.ts'),
+                outputAs: 'class',
+            },
             installSubscriptionHandlers: true,
-            playground: true,
         }),
         BooksModule,
         ReviewsModule,
