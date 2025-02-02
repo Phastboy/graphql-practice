@@ -59,3 +59,12 @@ This project is a simple book review API built with NestJS. It allows users to c
 3. The PostgreSQL database will be available at `localhost:5432`.
 4. Access pgAdmin at `http://localhost:5050` with the default email `admin@admin.com` and password `admin`.
 5. The PostgreSQL data will persist across container restarts due to the volume configuration.
+
+## Using the GitHub Action to Build the App Image
+
+1. Ensure you have a Docker registry account (e.g., Docker Hub).
+2. Update the GitHub repository secrets with your Docker registry credentials:
+   - `DOCKER_USERNAME`: Your Docker registry username.
+   - `DOCKER_PASSWORD`: Your Docker registry password.
+3. The GitHub action will automatically build and push the Docker image to the registry on every push to the `main` branch.
+4. You can find the built image in your Docker registry account.
