@@ -4,7 +4,7 @@ import { UpdateBookInput } from './dto/update-book.input';
 
 @Injectable()
 export class BooksService {
-    async create(createBookInput: CreateBookInput) {
+    create(createBookInput: CreateBookInput) {
         return `This action adds a new book with input: ${JSON.stringify(createBookInput)}`;
     }
 
@@ -16,7 +16,7 @@ export class BooksService {
         return `This action returns a #${id} book`;
     }
 
-    async update(id: number, updateBookInput: UpdateBookInput) {
+    update(id: number, updateBookInput: UpdateBookInput) {
         return `This action updates a #${id} book ${JSON.stringify(updateBookInput)}`;
     }
 
