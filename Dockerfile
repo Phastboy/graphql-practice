@@ -8,10 +8,12 @@ WORKDIR /app
 COPY . /app
 
 # Install dependencies and generate Prisma client
-RUN npm install && npx prisma generate
+RUN npm install
+RUN npx prisma generate 
+RUN npm run build
 
 # Expose port 8080
 EXPOSE 8080
 
 # Run the application
-CMD sh -c "npm install && npx prisma generate && npm run build && npm run start:prod"
+CMD ["npm", "run", "start:prod"]
