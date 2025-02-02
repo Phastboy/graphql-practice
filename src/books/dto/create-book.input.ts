@@ -1,1 +1,4 @@
-export class CreateBookInput {}
+export class CreateBookInput {
+    title: string;
+    author: string;
+}
