@@ -24,6 +24,22 @@ services:
     networks:
       - mynetwork
 
+  app:
+    image: node:latest
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: >
+      sh -c "npm install &&
+             npx prisma generate &&
+             npm run start:dev"
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    networks:
+      - mynetwork
+
 networks:
   mynetwork:
     driver: bridge
