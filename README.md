@@ -94,4 +94,18 @@ This project is a simple book review API built with NestJS. It allows users to c
    - Ensure all dependencies are installed correctly.
    - Check the logs for specific error messages and address them accordingly.
 
----
+## GraphQL Playground Queries
+
+### Create a Book
+
+To create a book, use the following mutation in the GraphQL Playground:
+
+```graphql
+mutation {
+  createBook(createBookInput: { title: "Book Title", author: "Author Name" }) {
+    id
+    title
+    author
+  }
+}
+```
