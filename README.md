@@ -66,5 +66,5 @@ This project is a simple book review API built with NestJS. It allows users to c
 2. Update the GitHub repository secrets with your Docker registry credentials:
    - `DOCKER_USERNAME`: Your Docker registry username.
    - `DOCKER_PASSWORD`: Your Docker registry password.
-3. The GitHub action will automatically build and push the Docker image to the registry on every push to the `main` branch.
+3. The GitHub action will automatically build and push the Docker image to the registry on every push to the `main` branch and on every pull request to the `main` branch.
 4. You can find the built image in your Docker registry account.
