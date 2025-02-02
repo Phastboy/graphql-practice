@@ -1,0 +1,28 @@
+type Review {
+  id: Int!
+  content: String!
+  rating: Int!
+  book: Book!
+}
+
+input CreateReviewInput {
+  content: String!
+  rating: Int!
+  bookId: Int!
+}
+
+input UpdateReviewInput {
+  content: String
+  rating: Int
+}
+
+type Query {
+  reviews: [Review!]!
+  review(id: Int!): Review
+}
+
+type Mutation {
+  createReview(createReviewInput: CreateReviewInput!): Review!
+  updateReview(id: Int!, updateReviewInput: UpdateReviewInput!): Review!
+  removeReview(id: Int!): Review
+}
