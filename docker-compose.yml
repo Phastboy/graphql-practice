@@ -32,7 +32,8 @@ services:
     command: >
       sh -c "npm install &&
              npx prisma generate &&
-             npm run start:dev"
+             npm run build &&
+             npm run start:prod"
     depends_on:
       - postgres
     ports:
