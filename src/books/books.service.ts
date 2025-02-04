@@ -22,12 +22,4 @@ export class BooksService {
     findOne(id: string) {
         return this.books.find((book) => book.id === id);
     }
-
-    update(id: string, updateBookInput: UpdateBookInput) {
-        return `This action updates a #${id} book`;
-    }
-
-    remove(id: string) {
-        return `This action removes a #${id} book`;
-    }
 }
