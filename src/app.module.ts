@@ -8,6 +8,7 @@ import { BooksModule } from './books/books.module';
     imports: [
         GraphQLModule.forRoot<ApolloDriverConfig>({
             driver: ApolloDriver,
+            typePaths: ['./**/*.graphql'],
         }),
         BooksModule,
     ],
