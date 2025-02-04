@@ -5,30 +5,30 @@ import { UpdateBookInput } from './dto/update-book.input';
 
 @Resolver('Book')
 export class BooksResolver {
-  constructor(private readonly booksService: BooksService) {}
+    constructor(private readonly booksService: BooksService) {}
 
-  @Mutation('createBook')
-  create(@Args('createBookInput') createBookInput: CreateBookInput) {
-    return this.booksService.create(createBookInput);
-  }
+    @Mutation('createBook')
+    create(@Args('createBookInput') createBookInput: CreateBookInput) {
+        return this.booksService.create(createBookInput);
+    }
 
-  @Query('books')
-  findAll() {
-    return this.booksService.findAll();
-  }
+    @Query('books')
+    findAll() {
+        return this.booksService.findAll();
+    }
 
-  @Query('book')
-  findOne(@Args('id') id: number) {
-    return this.booksService.findOne(id);
-  }
+    @Query('book')
+    findOne(@Args('id') id: number) {
+        return this.booksService.findOne(id);
+    }
 
-  @Mutation('updateBook')
-  update(@Args('updateBookInput') updateBookInput: UpdateBookInput) {
-    return this.booksService.update(updateBookInput.id, updateBookInput);
-  }
+    @Mutation('updateBook')
+    update(@Args('updateBookInput') updateBookInput: UpdateBookInput) {
+        return this.booksService.update(updateBookInput.id, updateBookInput);
+    }
 
-  @Mutation('removeBook')
-  remove(@Args('id') id: number) {
-    return this.booksService.remove(id);
-  }
+    @Mutation('removeBook')
+    remove(@Args('id') id: number) {
+        return this.booksService.remove(id);
+    }
 }
