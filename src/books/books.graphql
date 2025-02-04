@@ -1,5 +1,5 @@
 type Book {
-  id:Int!
+  id:ID!
   title: String!
   author: String!
   rating: Int!
@@ -12,16 +12,16 @@ input CreateBookInput {
 }
 
 input UpdateBookInput {
-  id: Int!
+  id: ID!
 }
 
 type Query {
   books: [Book]!
-  book(id: Int!): Book
+  book(id: ID!): Book
 }
 
 type Mutation {
   createBook(createBookInput: CreateBookInput!): Book!
   updateBook(updateBookInput: UpdateBookInput!): Book!
-  removeBook(id: Int!): Book
+  removeBook(id: ID!): Book
 }
