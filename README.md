@@ -58,28 +58,6 @@ This project is a practice implementation of GraphQL using NestJS. It includes f
      }
    }
    ```
-4. Mutation: `updateBook(updateBookInput: UpdateBookInput!)` - Updates an existing book.
-   ```graphql
-   mutation {
-     updateBook(updateBookInput: { id: "1", title: "Updated Title", author: "Updated Author", rating: 10 }) {
-       id
-       title
-       author
-       rating
-     }
-   }
-   ```
-5. Mutation: `removeBook(id: ID!)` - Removes a book by its ID.
-   ```graphql
-   mutation {
-     removeBook(id: "1") {
-       id
-       title
-       author
-       rating
-     }
-   }
-   ```
 
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
