@@ -1,26 +1,33 @@
 import { Injectable } from '@nestjs/common';
-import { CreateBookInput } from './dto/create-book.input';
-import { UpdateBookInput } from './dto/update-book.input';
+import { CreateBookInput, Book } from '../graphql';
+import { UpdateBookInput } from '../graphql';
 
 @Injectable()
 export class BooksService {
-    create(createBookInput: CreateBookInput) {
-        return 'This action adds a new book';
+    private books: Book[] = [
+        { id: '1', title: 'The Great Gatsby', author: 'unknown', rating: 9 },
+        { id: '2', title: '1984', author: 'unknown', rating: 8 },
+    ];
+
+    create(bookInput: Omit<Book, 'id'>) {
+        const newBook = { id: String(this.books.length + 1), ...bookInput };
+        this.books.push(newBook);
+        return newBook;
     }
 
     findAll() {
-        return `This action returns all books`;
+        return this.books;
     }
 
-    findOne(id: number) {
-        return `This action returns a #${id} book`;
+    findOne(id: string) {
+        return this.books.find((book) => book.id === id);
     }
 
-    update(id: number, updateBookInput: UpdateBookInput) {
+    update(id: string, updateBookInput: UpdateBookInput) {
         return `This action updates a #${id} book`;
     }
 
-    remove(id: number) {
+    remove(id: string) {
         return `This action removes a #${id} book`;
     }
 }
