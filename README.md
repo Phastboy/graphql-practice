@@ -24,5 +24,62 @@ This project is a practice implementation of GraphQL using NestJS. It includes f
    ```
 2. Open your browser and navigate to `http://localhost:3000/graphql` to access the GraphQL playground.
 
+## GraphQL Operations
+1. Query: `books` - Retrieves a list of all books.
+   ```graphql
+   query {
+     books {
+       id
+       title
+       author
+       rating
+     }
+   }
+   ```
+2. Query: `book(id: ID!)` - Retrieves a single book by its ID.
+   ```graphql
+   query {
+     book(id: "1") {
+       id
+       title
+       author
+       rating
+     }
+   }
+   ```
+3. Mutation: `createBook(createBookInput: CreateBookInput!)` - Creates a new book.
+   ```graphql
+   mutation {
+     createBook(createBookInput: { title: "New Book", author: "Author Name", rating: 5 }) {
+       id
+       title
+       author
+       rating
+     }
+   }
+   ```
+4. Mutation: `updateBook(updateBookInput: UpdateBookInput!)` - Updates an existing book.
+   ```graphql
+   mutation {
+     updateBook(updateBookInput: { id: "1", title: "Updated Title", author: "Updated Author", rating: 10 }) {
+       id
+       title
+       author
+       rating
+     }
+   }
+   ```
+5. Mutation: `removeBook(id: ID!)` - Removes a book by its ID.
+   ```graphql
+   mutation {
+     removeBook(id: "1") {
+       id
+       title
+       author
+       rating
+     }
+   }
+   ```
+
 ## License
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
