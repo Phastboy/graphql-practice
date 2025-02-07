@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CreateBookInput, Book } from '../graphql';
-import { UpdateBookInput } from '../graphql';
+import { CreateBookInput, UpdateBookInput, Book } from '../graphql/graphql';
 
 @Injectable()
 export class BooksService {

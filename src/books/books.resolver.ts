@@ -1,7 +1,6 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { BooksService } from './books.service';
-import { CreateBookInput } from '../graphql';
-import { UpdateBookInput } from '../graphql';
+import { CreateBookInput, UpdateBookInput } from '../graphql/graphql';
 
 @Resolver('Book')
 export class BooksResolver {
